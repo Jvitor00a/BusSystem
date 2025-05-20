@@ -18,15 +18,19 @@ public class Program
         {
             nomeProcessador = nome,
             bits = largura,
-
+            frequencia = frequencia,
+            numeroDispositivos = numeroDispositivos,
+            ciclos = numeroCiclos
         };
+
+        ExibirResultados(busSystem);
     }
 
     static void BoasVindas()
     {
-        Console.WriteLine("==========================================");
-        Console.WriteLine("    BusSystem Analyzer    ");
-        Console.WriteLine("==========================================");
+        Console.WriteLine("\n==========================================");
+        Console.WriteLine("              BusSystem Analyzer            ");
+        Console.WriteLine("===========================================\n");
         Console.WriteLine("Este programa vai lhe informar calculos sobre Sistemas Operacionais");
         Console.WriteLine();
     }
@@ -86,6 +90,38 @@ public class Program
         }
 
         return ciclos;
+    }
+
+    static void ExibirResultados(BusSystem busSystem)
+    {
+        decimal taxa = busSystem.TaxaTransferenciaTeorica();
+        decimal latenciaEstimada = busSystem.LatenciaEstimada();
+        decimal impacto = busSystem.ImpactoCiclosPorTransferencia();
+        decimal largura = busSystem.LarguraBandaEfetiva();
+
+        Console.Clear();
+
+        Console.WriteLine("\n==========================================");
+        Console.WriteLine("           RESULTADOS DA ANÁLISE          ");
+        Console.WriteLine("==========================================\n");
+
+        Console.WriteLine("\nCONFIGURAÇÃO ANALISADA:");
+        Console.WriteLine($"Processador: {busSystem.nomeProcessador}");
+        Console.WriteLine($"Largura do barramento: {busSystem.bits} bits");
+        Console.WriteLine($"Frequência: {busSystem.frequencia} GHz");
+        Console.WriteLine($"Dispositivos conectados: {busSystem.numeroDispositivos}");
+        Console.WriteLine($"Ciclos por transferência: {busSystem.ciclos}");
+
+        Console.WriteLine("\nMÉTRICAS DE DESEMPENHO:");
+        Console.WriteLine("----------------------------------------");
+        Console.WriteLine($"A Taxa de trasnferência teorica calculada é = {taxa:F2} GB/s");
+        Console.WriteLine($"A Latência estimada é = {latenciaEstimada:F2} ns");
+        Console.WriteLine($"Temos uma perda de desempenho estimada em {impacto:F2}%");
+        Console.WriteLine($"TEmos uma largura de banda efetiva = {largura:F2} GB/s");
+        Console.WriteLine("----------------------------------------\n");
+
+        Console.WriteLine("\nPressione qualquer tecla para continuar...");
+        Console.ReadKey();
     }
 
 
