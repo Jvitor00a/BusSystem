@@ -45,7 +45,7 @@ public class Program
         return nomeProcessador;
     }
 
-    static decimal ObterlarguraBarramento()
+    static int ObterlarguraBarramento()
     {
         Console.WriteLine("Digite a largura do barramento de dados existente (Em bits ");
         string entrada = Console.ReadLine();
