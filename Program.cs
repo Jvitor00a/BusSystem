@@ -37,7 +37,7 @@ public class Program
 
     static string ObterNomeProcessador()
     {
-        Console.WriteLine("Digite o nome do Processador que esta sendo usado: ");
+        Console.WriteLine("\nDigite o nome do Processador que esta sendo usado: ");
         string nomeProcessador = Console.ReadLine();
         while (string.IsNullOrEmpty(nomeProcessador))
         {
@@ -51,7 +51,7 @@ public class Program
 
     static int ObterlarguraBarramento()
     {
-        Console.WriteLine("Digite a largura do barramento de dados existente (Em bits ");
+        Console.WriteLine("\nDigite a largura do barramento de dados existente (Em bits): ");
         string entrada = Console.ReadLine();
 
         int larguraBarramento = ValidarRespostaInt(entrada);
@@ -61,7 +61,7 @@ public class Program
 
     static decimal ObterFrequenciaBarramento()
     {
-        Console.WriteLine("Digite a Frequência do barramento (Em GHz): ");
+        Console.WriteLine("\nDigite a Frequência do barramento (Em GHz): ");
         string entrada = Console.ReadLine();
 
         decimal frequencia = ValidarRespostaDecimal(entrada);
@@ -71,7 +71,7 @@ public class Program
 
     static int ObterDispositivosAtivos()
     {
-        Console.WriteLine("Digite o número de dispositivos conectados: ");
+        Console.WriteLine("\nDigite o número de dispositivos conectados: ");
         string entrada = Console.ReadLine();
 
         int numeroDispositivos = ValidarRespostaInt(entrada);
@@ -82,7 +82,7 @@ public class Program
     static int ObterNumeroDeCiclos()
     {
         int ciclos;
-        Console.WriteLine("Digite o número de ciclos feitos pela operação: ");
+        Console.WriteLine("\nDigite o número de ciclos feitos pela operação: ");
 
         while (!int.TryParse(Console.ReadLine(), out ciclos))
         {
@@ -120,7 +120,7 @@ public class Program
         Console.WriteLine($"TEmos uma largura de banda efetiva = {largura:F2} GB/s");
         Console.WriteLine("----------------------------------------\n");
 
-        Console.WriteLine("\nPressione qualquer tecla para continuar...");
+        Console.WriteLine("\nPressione qualquer tecla para fechar o programa...");
         Console.ReadKey();
     }
 
